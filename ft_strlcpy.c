@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy_ko.c                                    :+:    :+:            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/01/27 11:51:13 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/10 17:45:45 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/11 16:18:06 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int	n;
 	unsigned int	length;
@@ -31,16 +33,16 @@ unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 	return (length);
 }
 
-#include <bsd/string.h>
-#include <stdio.h>
-int		main(void)
-{
-	char 	dest[] = "Hello world world world";
-	char 	dest2[] = "Hello world world world";
-	char	src[10] = "test test";
-	int 	length = strlcpy(dest, src, 1);
-	int 	length2 = ft_strlcpy(dest2, src, 1);
+// #include <bsd/string.h>
+// #include <stdio.h>
+// int		main(void)
+// {
+// 	char 	dest[] = "Hello world world world";
+// 	char 	dest2[] = "Hello world world world";
+// 	char	src[10] = "test test";
+// 	int 	length = strlcpy(dest, src, 1);
+// 	int 	length2 = ft_strlcpy(dest2, src, 1);
 
-	printf("%s\nlength=%d\n", dest, length);
-	printf("%s\nlength=%d", dest2, length2);
-}
+// 	printf("%s\nlength=%d\n", dest, length);
+// 	printf("%s\nlength=%d", dest2, length2);
+// }

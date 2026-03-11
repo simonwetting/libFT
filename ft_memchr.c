@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strrchr.c                                       :+:    :+:            */
+/*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/03/11 09:45:54 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/11 16:18:13 by swetting      ########   odam.nl         */
+/*   Created: 2026/03/11 15:21:57 by swetting      #+#    #+#                 */
+/*   Updated: 2026/03/11 15:28:08 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int		index;
-	char	*location;
+#include "libft.h"
 
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t	index;
+	char	*ptr;
+	
 	index = -1;
-	location = 0;
-	while (s[++index])
-		if (s[index] == c)
-			location = (char *)(s + index);
-	return (location);
+	ptr = (char *)s;
+	while (ptr[++index] && index < n)
+		if (ptr[index] == c)
+			return ((void *)(ptr + index));
+	return (0);
 }
 
 // #include <stdio.h>
 // int		main()
 // {
-// 	char *s = "test";
-// 	printf("%s", ft_strrchr(s, 't'));
+// 	char s[] = "test";
+// 	printf("%s", (char *)ft_memchr(s+1, 't', 4));
 // }

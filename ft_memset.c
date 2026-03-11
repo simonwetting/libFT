@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
+/*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/03/11 10:01:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/11 14:14:33 by swetting      ########   odam.nl         */
+/*   Created: 2026/03/11 13:07:33 by swetting      #+#    #+#                 */
+/*   Updated: 2026/03/11 13:33:44 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void *ft_memset(void *s, int c, size_t n)
 {
 	size_t	index;
 	char	*pointer;
@@ -20,14 +20,16 @@ void ft_bzero(void *s, size_t n)
 	index = -1;
 	pointer = (char *)(s);
 	while (++index < n)
-		pointer[index] = 0;
+		pointer[index] = c;
+	return (s);
 }
 
+// #include "libft.h"
 // int		main()
 // {
 // 	char s[] = "test";
 
 // 	printf("%s\n", s);
-// 	ft_bzero(s + 2, 1);
+// 	ft_memset(s + 2, 0, 1);
 // 	printf("%s\n", s);
 // }
