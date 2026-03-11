@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   libft.h                                            :+:    :+:            */
+/*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: swetting <swetting@student.codam.nl>         +#+                     */
+/*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/03/10 16:49:31 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/10 17:09:18 by swetting      ########   odam.nl         */
+/*   Created: 2026/03/11 09:44:57 by anonymous     #+#    #+#                 */
+/*   Updated: 2026/03/11 09:44:57 by anonymous     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
+char *ft_strchr(const char *s, int c)
+{
+	int	index;
 
-#include <stddef.h>
+	index = -1;
+	while (s[++index])
+		if (s[index] == c)
+			return ((char *)(s + index));
+	return (0);
+}
+
 #include <stdio.h>
-#endif
+int		main()
+{
+	char *s = "test";
+	printf("%s", ft_strchr(s, 't'));
+}
