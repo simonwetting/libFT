@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 14:16:36 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/12 14:45:33 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,8 @@ int		main()
 	
 	char	*s3 = ft_strjoin(s, s2);
 	printf("%s\n", s3);
+	
+	printf("test\n");
+	char	*s4 = ft_strtrim(s3, "holla");
+	printf("ft_strtrim>%s\n", s4);
 }
