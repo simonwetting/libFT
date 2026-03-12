@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 17:42:51 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/12 17:59:39 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ int		main()
 	if (strings)
 		while (strings[n])
 			printf("%s\n", strings[n++]);
+	printf("%s\n", ft_itoa(-12345));
+	write(1, ft_itoa(-12345), 6);
+	printf("%s\n", ft_itoa(12345));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(2147483647));
 }
