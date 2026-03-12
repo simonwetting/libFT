@@ -6,18 +6,18 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:46:52 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 10:46:52 by anonymous     ########   odam.nl         */
+/*   Updated: 2026/03/12 14:20:06 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len_s1;
 	size_t	len_s2;
-	int		index;
-	char	output;
+	size_t	index;
+	char	*output;
 
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
@@ -25,5 +25,8 @@ char *ft_strjoin(char const *s1, char const *s2)
 	index = -1;
 	while (++index < len_s1)
 		output[index] = s1[index];
-	
+	index = -1;
+	while (++index < len_s2)
+		output[len_s1 + index] = s2[index];
+	return (output);
 }
