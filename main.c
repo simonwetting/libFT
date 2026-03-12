@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 14:45:33 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/12 17:15:16 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,14 @@ int		main()
 	printf("test\n");
 	char	*s4 = ft_strtrim(s3, "holla");
 	printf("ft_strtrim>%s\n", s4);
+
+	printf("%d>%s\n", count_strings(s4, ' '), s4);
+	printf("%d>%s\n", count_strings("", ' '), "");
+	printf("%d>%s\n", count_strings("   ", ' '), "   ");
+	printf("%d>%s\n", count_strings("test", ' '), "test");
+	printf("%d>%s\n", count_strings(" test", ' '), " test");
+	printf("%d>%s\n", count_strings("test ", ' '), "test ");
+	printf("%d>%s\n", count_strings("  test ", ' '), "  test ");
+	printf("%d>%s\n", count_strings("test test test ", ' '), "test test test ");
+	printf("%d>%s\n", count_strings("  t etes   ", ' '), "  t etes   ");
 }

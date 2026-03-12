@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/10 16:49:31 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/12 14:26:23 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/12 17:12:11 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ int		ft_toupper(int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
+char	count_strings(char const *s, char c);
 #endif
