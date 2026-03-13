@@ -12,6 +12,23 @@
 
 #include "libft.h"
 
+void	upcase(unsigned int index, char *s)
+{
+	if (s[index] >= 'a' && s[index] <= 'z')
+		s[index] -= 32;
+}
+
+void	lowcase(unsigned int index, char *s)
+{
+	if (s[index] >= 'A' && s[index] <= 'Z')
+		s[index] += 32;
+}
+
+char	increment(unsigned int i, char c)
+{
+	return (c + i);
+}
+
 int		main()
 {
 	printf("\n\n");
@@ -37,18 +54,30 @@ int		main()
 	// printf("%d>%s\n", count_strings("test test test ", ' '), "test test test ");
 	// printf("%d>%s\n", count_strings("  t etes   ", ' '), "  t etes   ");
 
-	// char **strings = ft_split("Hello world test    test ", ' ');
+	char **strings = ft_split("Hello world test    test ", ' ');
 	// char **strings = ft_split("", ' ');
 	// char **strings = ft_split("    ", ' ');
-	char **strings = ft_split("   Hello   world test    test ", ' ');
+	// char **strings = ft_split("   Hello   world test    test ", ' ');
 	int		n = 0;
 	if (strings)
 		while (strings[n])
-			printf("%s\n", strings[n++]);
+			printf("[%d]%s\n", n, strings[n++]);
+	else
+		printf("ft_split empty\n");
+	printf("test\n");
 	printf("%s\n", ft_itoa(-12345));
 	write(1, ft_itoa(-12345), 6);
 	printf("%s\n", ft_itoa(12345));
 	printf("%s\n", ft_itoa(0));
 	printf("%s\n", ft_itoa(-2147483648));
 	printf("%s\n", ft_itoa(2147483647));
+
+	char *smapi = ft_strmapi("test", &increment);
+	printf("strmapi>%s\n", smapi);
+
+	char s5[] = "testAA";
+	ft_striteri(s5, &upcase);
+	printf("ft_striteri>%s\n", s5);
+	ft_striteri(s5, &lowcase);
+	printf("ft_striteri>%s\n", s5);
 }

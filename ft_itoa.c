@@ -30,7 +30,7 @@ int		length_nbr(long nbr)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	long	nb;
+	long long	nb;
 	int		index;
 	int		length;
 
