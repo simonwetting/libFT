@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/10 16:49:31 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/13 14:26:51 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/13 17:29:46 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 
 # include <unistd.h>
 # include <stdio.h>
+
+typedef struct	s_list
+{
+void			*content;
+struct			s_list *next;
+}				t_list;
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
@@ -52,4 +58,12 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
 #endif

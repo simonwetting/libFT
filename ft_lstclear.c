@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_lstclear.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/03/13 14:45:43 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/13 15:36:26 by swetting      ########   odam.nl         */
+/*   Created: 2026/03/13 17:29:24 by swetting      #+#    #+#                 */
+/*   Updated: 2026/03/13 17:51:02 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list		*new;
+	t_list	**nodes;
+	t_list	*head;
+	int		index;
+	int		size;
 
-	new = malloc(sizeof(t_list));
-	new->content = content;
-	return (new);
+	head = *lst;
+	size = ft_lstsize(head);
+	nodes = malloc(sizeof(t_list *) * size + 1);
+	index = 0;
+	while (head)
+	{
+		nodes[index++] = head;
+		head = head->next;
+	}
+	nodes[index] = 0;
+	index = -1;
+	while (nodes[++index])
+		{printf("freeing>%p\n", nodes[index]);del(nodes[index]);free(nodes[index]);}
+	*lst = 0;
 }

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew.c                                        :+:    :+:            */
+/*   ft_lstsize.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/03/13 14:45:43 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/13 15:36:26 by swetting      ########   odam.nl         */
+/*   Created: 2026/03/13 17:07:01 by swetting      #+#    #+#                 */
+/*   Updated: 2026/03/13 17:13:15 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_lstsize(t_list *lst)
 {
-	t_list		*new;
+	int		size;
 
-	new = malloc(sizeof(t_list));
-	new->content = content;
-	return (new);
+	if (!lst)
+		return (0);
+	size = 1;
+	while (lst->next)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }

@@ -6,13 +6,18 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/13 15:25:41 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/13 18:14:31 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 #include <assert.h>
+
+void	del(void *p)
+{
+	free(p);
+}
 
 void	upcase(unsigned int index, char *s)
 {
@@ -94,4 +99,31 @@ int		main()
 	ft_putnbr_fd(0, 1);
 	ft_putendl_fd("", 1);
 	ft_putnbr_fd(-12345, 1);
+	ft_putendl_fd("", 1);
+
+	t_list	*head = ft_lstnew("Head");
+
+	printf("%s\n", (char *)head->content);
+
+	ft_lstadd_front(&head, ft_lstnew("New_head"));
+	t_list	*loop = head;
+	while (loop)
+	{
+		printf(">%s\n", (char *)loop->content);
+		loop = loop->next;
+	}
+	t_list *tmp = ft_lstlast(head);
+	printf("size>%d\n", ft_lstsize(head));
+	printf("last>%s\n", (char *)tmp->content);
+	ft_lstadd_back(&head, ft_lstnew("Third"));
+	loop = head;
+	while (loop)
+	{
+		printf(">%s\n", (char *)loop->content);
+		loop = loop->next;
+	}
+	// ft_lstclear(head, &del);
+	ft_lstdelone(head, &del);
+	// del(head);
+	// free(&head->content);
 }

@@ -1,5 +1,5 @@
 NAME = libft.a
-FILENAMES = ft_strncmp ft_isprint ft_strrchr ft_memmove ft_isalnum ft_isalpha ft_strlcat ft_memcpy ft_strlcpy ft_toupper ft_memchr ft_strnstr ft_isdigit ft_strlen ft_tolower ft_strdup ft_substr ft_memcmp ft_atoi ft_calloc ft_strchr ft_memset ft_bzero ft_strjoin ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd
+FILENAMES = ft_strncmp ft_isprint ft_strrchr ft_memmove ft_isalnum ft_isalpha ft_strlcat ft_memcpy ft_strlcpy ft_toupper ft_memchr ft_strnstr ft_isdigit ft_strlen ft_tolower ft_strdup ft_substr ft_memcmp ft_atoi ft_calloc ft_strchr ft_memset ft_bzero ft_strjoin ft_strtrim ft_split ft_itoa ft_strmapi ft_striteri ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd ft_lstnew ft_lstadd_front ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone ft_lstclear
 
 OBJECTS = $(FILENAMES:%=%.o)
 FILES = $(FILENAMES:%=%.c)
@@ -23,5 +23,5 @@ re: fclean all
 crun: re
 	cc main.c libft.a; ./a.out
 
-cleanrun:
+cleanrun: re
 	make clean; cc main.c libft.a; ./a.out
