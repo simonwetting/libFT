@@ -6,51 +6,13 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 14:50:10 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/12 17:15:33 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/13 14:55:18 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// size_t	count_strings(char const *s, char c, char delim_found, char string_found)
-// {
-// 	char	string_count;
-// 	// char	delim_found;
-// 	// char	string_found;
-
-// 	string_count = 0;
-// 	// delim_found = 0;
-// 	// string_found = 0;
-
-// 	if (s[0] == 0)
-// 		return (0);
-// 	while (*s == c && *s)
-// 		s++;
-// 	if (*s != c && *s)
-// 		{string_count++; printf("stringcount++\n");}
-// 	while (*s != c && *s)
-// 		s++;
-// 	while (*s == c && *s)
-// 		s++;
-// 	while (*s)
-// 	{
-// 		if (*s == c)
-// 			delim_found = 1;
-// 		else
-// 			string_found = 1;
-// 		if (delim_found && string_found)
-// 		{
-// 			string_count++;
-// 			delim_found = 0;
-// 			string_found = 0;
-// 		}
-// 		printf("eval[%c], delim[%d], string[%d], str_count[%d]\n", *s, delim_found, string_found, string_count);
-// 		s++;
-// 	}
-// 	return (string_count);
-// }
-
-char	count_strings(char const *s, char c)
+static char	count_strings(char const *s, char c)
 {
 	char	n_strings;
 
@@ -73,14 +35,41 @@ char	count_strings(char const *s, char c)
 	return (n_strings);
 }
 
+static size_t	str_len(char const *s, char c)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len] != c && s[len])
+		len++;
+	return (len);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	string_count;
+	size_t	len;
+	size_t	index;
 	char	**strings;
+	
 
 	string_count = count_strings(s, c);
 	if (string_count == 0)
 		return (0);
-	strings = malloc(sizeof(char *) * string_count);
+	strings = malloc(sizeof(char *) * (string_count + 1));
+	while (*s == c)
+		s++;
+	index = 0;
+	while (index < string_count)
+	{
+		while (*s == c)
+			s++;
+		len = str_len(s, c);
+		strings[index] = malloc(len + 1);
+		ft_memcpy(strings[index], s, len);
+		strings[index++][len] = 0;
+		s += len;
+	}
+	strings[index] = 0;
 	return (strings);
 }

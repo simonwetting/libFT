@@ -6,11 +6,13 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 17:59:39 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/13 15:25:41 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <assert.h>
 
 void	upcase(unsigned int index, char *s)
 {
@@ -54,17 +56,18 @@ int		main()
 	// printf("%d>%s\n", count_strings("test test test ", ' '), "test test test ");
 	// printf("%d>%s\n", count_strings("  t etes   ", ' '), "  t etes   ");
 
-	char **strings = ft_split("Hello world test    test ", ' ');
+	// char **strings = ft_split("Hello world test    test ", ' ');
+	// char **strings = ft_split("Hello", ' ');
 	// char **strings = ft_split("", ' ');
-	// char **strings = ft_split("    ", ' ');
+	char **strings = ft_split("    ", ' ');
 	// char **strings = ft_split("   Hello   world test    test ", ' ');
-	int		n = 0;
+	int		n = -1;
 	if (strings)
-		while (strings[n])
-			printf("[%d]%s\n", n, strings[n++]);
+		while (strings[++n])
+			printf("[%d]%s\n", n, strings[n]);
 	else
 		printf("ft_split empty\n");
-	printf("test\n");
+	printf("^^^^test\n");
 	printf("%s\n", ft_itoa(-12345));
 	write(1, ft_itoa(-12345), 6);
 	printf("%s\n", ft_itoa(12345));
@@ -80,4 +83,15 @@ int		main()
 	printf("ft_striteri>%s\n", s5);
 	ft_striteri(s5, &lowcase);
 	printf("ft_striteri>%s\n", s5);
+	
+	ft_putstr_fd("test", 1);
+	ft_putendl_fd("test", 1);
+	ft_putendl_fd("test", 1);
+	ft_putnbr_fd(2147483647, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(-2147483648, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(0, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(-12345, 1);
 }
