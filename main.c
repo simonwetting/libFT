@@ -55,6 +55,18 @@ char	increment(unsigned int i, char c)
 
 int		main()
 {
+	assert(ft_atoi("") == atoi(""));
+	assert(ft_atoi("0") == atoi("0"));
+	assert(ft_atoi("123asd123") == atoi("123asd123"));
+	assert(ft_atoi("-0") == atoi("-0"));
+	assert(ft_atoi("-1234") == atoi("-1234"));
+	assert(ft_atoi("-+1234") == atoi("-+1234"));
+	assert(ft_atoi("--1234") == atoi("--1234"));
+	assert(ft_atoi("++1234") == atoi("++1234"));
+	assert(ft_atoi("-2147483648") == atoi("-2147483648"));
+	assert(ft_atoi("2147483647") == atoi("2147483647"));
+
+
 	printf("\n\n");
 	char	*s = "Hello world, holla warld, test test";
 	char	*s2 = ft_substr(s, 6, 10);
