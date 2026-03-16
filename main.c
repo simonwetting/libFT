@@ -14,6 +14,23 @@
 #include <string.h>
 #include <assert.h>
 
+void	*duplicate_node(void *p)
+{
+	t_list	*old_node;
+	t_list	*new;
+
+	old_node = (t_list *)p;
+	new = malloc(sizeof(t_list));
+	new->content = old_node->content;
+	new->next = 0;
+	return ((void *)new);
+}
+
+void	print_content(void *p)
+{
+	ft_putendl_fd((char *)p, 1);
+}
+
 void	del(void *p)
 {
 	free(p);
@@ -109,7 +126,7 @@ int		main()
 	t_list	*loop = head;
 	while (loop)
 	{
-		printf(">%s\n", (char *)loop->content);
+		printf("%p>%s\n", loop, (char *)loop->content);
 		loop = loop->next;
 	}
 	t_list *tmp = ft_lstlast(head);
@@ -119,11 +136,17 @@ int		main()
 	loop = head;
 	while (loop)
 	{
-		printf(">%s\n", (char *)loop->content);
+		printf("%p>%s\n", loop, (char *)loop->content);
 		loop = loop->next;
 	}
-	// ft_lstclear(head, &del);
-	ft_lstdelone(head, &del);
+	// ft_lstclear(&head, &del);
+	printf("afeter\n");
+	ft_lstiter(head, &print_content);
+	// ft_lstdelone(head, &del);
 	// del(head);
 	// free(&head->content);
+	ft_putendl_fd("DUP:", 1);
+	t_list *dup = ft_lstmap(head, &duplicate_node, &del);
+	ft_putendl_fd("test", 1);
+	ft_lstiter(dup, &print_content);
 }

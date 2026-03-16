@@ -31,6 +31,9 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
 	nodes[index] = 0;
 	index = -1;
 	while (nodes[++index])
-		{printf("freeing>%p\n", nodes[index]);del(nodes[index]);free(nodes[index]);}
+	{
+		del(nodes[index]);
+	}
 	*lst = 0;
 }
+// printf("freeing>%p\n", nodes[index]);
