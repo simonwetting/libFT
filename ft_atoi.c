@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/02/12 11:01:15 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/10 17:06:19 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/16 12:23:34 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *nptr)
 	number = 0;
 	while (nptr[n] == ' ' || (nptr[n] >= 9 && nptr[n] <= 13))
 		n++;
-	while (nptr[n] == '+' || nptr[n] == '-')
+	if (nptr[n] == '+' || nptr[n] == '-')
 	{
 		if (nptr[n] == '-')
 			negative *= -1;

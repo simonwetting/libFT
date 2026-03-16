@@ -21,7 +21,10 @@ fclean: clean
 re: fclean all
 
 crun: re
-	cc main.c libft.a; ./a.exe
+	cc main.c libft.a; ./a.out
 
 cleanrun: re
-	make clean; cc main.c libft.a; ./a.exe
+	make clean; cc main.c libft.a; ./a.out
+
+frun:
+	cc main.c libft.a; ./a.out | cat -e

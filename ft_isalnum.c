@@ -6,13 +6,13 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/10 18:00:15 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/10 18:06:39 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/16 12:34:01 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int ft_isalnum(int c)
 {
     if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
-        return (1);
+        return (8);
     return (0);
 }

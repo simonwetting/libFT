@@ -6,13 +6,15 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/13 18:14:31 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/16 13:44:22 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
+#include <strings.h>
 #include <assert.h>
+#include <ctype.h>
 
 void	*duplicate_node(void *p)
 {
@@ -66,7 +68,67 @@ int		main()
 	assert(ft_atoi("-2147483648") == atoi("-2147483648"));
 	assert(ft_atoi("2147483647") == atoi("2147483647"));
 
+	char	bzero[] = "Test";
+	write(1, bzero, 5);
+	ft_bzero(bzero, 4);
+	write(1, bzero, 5);
 
+	char	*callocated = ft_calloc(4294967296, 1);
+	ft_putendl_fd("test2", 1);
+	if (callocated)
+		write(1, callocated, 1000);
+	else
+		ft_putendl_fd("Size too big", 1);
+	
+	for (int n = 0; n < 255; n++)
+	{
+		assert(ft_isprint(n) == isprint(n));
+		assert(ft_isalnum(n) == isalnum(n));
+		assert(ft_isdigit(n) == isdigit(n));
+		assert(ft_isalpha(n) == isalpha(n));
+	}
+
+	printf("\nITOA\n");
+	printf("%s\n", ft_itoa(-12345));
+	printf("%s\n", ft_itoa(12345));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n\n", ft_itoa(2147483647));
+
+
+	t_list	*head = ft_lstnew("Head");
+	printf("lstnew->content    %s\n", (char *)head->content);
+	printf("lst_addfront\n");
+	ft_lstadd_front(&head, ft_lstnew("New_head"));
+	t_list	*loop = head;
+	while (loop)
+	{
+		printf("%p>%s\n", loop, (char *)loop->content);
+		loop = loop->next;
+	}
+	t_list *tmp = ft_lstlast(head);
+	printf("lstsize>%d\n", ft_lstsize(head));
+	printf("lstlast>%s\n", (char *)tmp->content);
+	ft_lstadd_back(&head, ft_lstnew("Third"));
+	loop = head;
+	while (loop)
+	{
+		printf("%p>%s\n", loop, (char *)loop->content);
+		loop = loop->next;
+	}
+	// ft_lstclear(&head, &del);
+	printf("lstiter (print content)\n");
+	ft_lstiter(head, &print_content);
+	// ft_lstdelone(head, &del);
+	// del(head);
+	// free(&head->content);
+	ft_putendl_fd("ft_lstmap (duplicate):", 1);
+	t_list *dup = ft_lstmap(head, &duplicate_node, &del);
+	ft_putendl_fd("test", 1);
+	ft_lstiter(dup, &print_content);
+
+	
+		
 	printf("\n\n");
 	char	*s = "Hello world, holla warld, test test";
 	char	*s2 = ft_substr(s, 6, 10);
@@ -90,10 +152,10 @@ int		main()
 	// printf("%d>%s\n", count_strings("test test test ", ' '), "test test test ");
 	// printf("%d>%s\n", count_strings("  t etes   ", ' '), "  t etes   ");
 
-	// char **strings = ft_split("Hello world test    test ", ' ');
+	char **strings = ft_split("Hello world test    test ", ' ');
 	// char **strings = ft_split("Hello", ' ');
 	// char **strings = ft_split("", ' ');
-	char **strings = ft_split("    ", ' ');
+	// char **strings = ft_split("    ", ' ');
 	// char **strings = ft_split("   Hello   world test    test ", ' ');
 	int		n = -1;
 	if (strings)
@@ -102,12 +164,7 @@ int		main()
 	else
 		printf("ft_split empty\n");
 	printf("^^^^test\n");
-	printf("%s\n", ft_itoa(-12345));
-	write(1, ft_itoa(-12345), 6);
-	printf("%s\n", ft_itoa(12345));
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(-2147483648));
-	printf("%s\n", ft_itoa(2147483647));
+
 
 	char *smapi = ft_strmapi("test", &increment);
 	printf("strmapi>%s\n", smapi);
@@ -129,36 +186,4 @@ int		main()
 	ft_putendl_fd("", 1);
 	ft_putnbr_fd(-12345, 1);
 	ft_putendl_fd("", 1);
-
-	t_list	*head = ft_lstnew("Head");
-
-	printf("%s\n", (char *)head->content);
-
-	ft_lstadd_front(&head, ft_lstnew("New_head"));
-	t_list	*loop = head;
-	while (loop)
-	{
-		printf("%p>%s\n", loop, (char *)loop->content);
-		loop = loop->next;
-	}
-	t_list *tmp = ft_lstlast(head);
-	printf("size>%d\n", ft_lstsize(head));
-	printf("last>%s\n", (char *)tmp->content);
-	ft_lstadd_back(&head, ft_lstnew("Third"));
-	loop = head;
-	while (loop)
-	{
-		printf("%p>%s\n", loop, (char *)loop->content);
-		loop = loop->next;
-	}
-	// ft_lstclear(&head, &del);
-	printf("afeter\n");
-	ft_lstiter(head, &print_content);
-	// ft_lstdelone(head, &del);
-	// del(head);
-	// free(&head->content);
-	ft_putendl_fd("DUP:", 1);
-	t_list *dup = ft_lstmap(head, &duplicate_node, &del);
-	ft_putendl_fd("test", 1);
-	ft_lstiter(dup, &print_content);
 }
