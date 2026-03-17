@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 12:27:21 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 12:45:06 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ void	test_memmove()
 	printf("\n");
 	for (int n = 0; n < 6; n ++)
 		printf("%d\n", array[n]);
+	printf("FAILED TEST\n");
+	char sResult[] = {67, 68, 67, 68, 69, 0, 45};
+	ft_memmove(sResult + 1, sResult, 2);
+	for (int n = 0; n < 6; n ++)
+		printf("%d\n", sResult[n]);
+	
 }
 void	test_memcpy(){
 	printf("\nMEMCPY\n");

@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 14:39:19 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/11 16:17:57 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 12:45:54 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			p_dest[index] = p_src[index];
 	if (src < dest)
 		while (++index < n)
-			p_dest[n - index] = p_src[n - index];
+			p_dest[n - index - 1] = p_src[n - index - 1];
 	return (dest);
 }
 

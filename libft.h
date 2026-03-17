@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/10 16:49:31 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/16 16:35:37 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 12:47:52 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s)e
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, char *src, unsigned int size);
 size_t	ft_strlen(const char *s);
