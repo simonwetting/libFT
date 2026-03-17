@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 16:24:16 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/11 16:38:07 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 16:36:12 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ char *ft_strdup(const char *s)
 	char	*output;
 
 	length = ft_strlen(s);
-	output = malloc(sizeof(char) * length);
+	output = malloc(length + 1);
 	index = -1;
 	while (++index < length)
 		output[index] = s[index];
+	output[index] = 0;
 	return (output);
 }
 

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 16:14:40 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 17:10:08 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,12 +172,12 @@ int		main()
 	ft_bzero(bzero, 4);
 	write(1, bzero, 5);
 
-	char	*callocated = ft_calloc(4294967296, 1);
+	// char	*callocated = ft_calloc(4294967296, 1);
 	ft_putendl_fd("test2", 1);
-	if (callocated)
-		write(1, callocated, 1000);
-	else
-		ft_putendl_fd("Size too big", 1);
+	// if (callocated)
+	// 	write(1, callocated, 1000);
+	// else
+	// 	ft_putendl_fd("Size too big", 1);
 	
 	for (int n = 0; n < 255; n++)
 	{
@@ -258,7 +258,7 @@ int		main()
 	test_strlcpy();
 	test_strlcpy();
 	test_strnstr();
-	printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
+	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);
 	// ft_putchar_fd('a', 1);
@@ -317,8 +317,8 @@ int		main()
 	printf("%s\n", s3);
 	
 	printf("ft_strtrim\n");
-	// char	*s4 = ft_strtrim(s3, "holla");
-	// printf("ft_strtrim>%s\n", s4);
+	char	*s4 = ft_strtrim(s3, "holla");
+	printf("ft_strtrim>%s\n", s4);
 
 	
 
