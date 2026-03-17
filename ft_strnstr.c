@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/01/28 09:09:53 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/11 16:02:31 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 16:03:43 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			n_little = 0;
 			while (little[n_little] == big[n_big] || little[n_little] == 0)
 			{
+				if (n_big > len)
+					return (0);
+				// printf("big[n]=%c     %lu+%lu = %lu\n", big[n_big + n_little], n_big, n_little, n_big +n_little);
 				if (little[n_little] == 0)
 					return ((char *)(big + n_big - n_little));
 				n_little++;

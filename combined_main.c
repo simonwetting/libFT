@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 12:45:06 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 16:14:40 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 #include <strings.h>
 #include <assert.h>
 #include <ctype.h>
+
+void	test_memchr()
+{
+	char s[] = {0, 1, 2 ,3 ,4 ,5};
+	printf("MEMCHR\n");
+	// assert(ft_memchr(s, 0, 1) == s);
+	printf("%p == %p\n", ft_memchr(s, 0, 1), s);
+	printf("%p == %p\n", ft_memchr(s, 2 + 256, 3), s + 2);
+}
 
 void	test_memmove()
 {
@@ -73,6 +82,38 @@ void	test_memset()
 	// write(1, s, 10);
 }
 
+void	test_memcmp()
+{
+	char s[] = {-128, 0, 127, 0};
+	char sCpy[] = {-128, 0, 127, 0};
+	char s2[] = {0, 0, 127, 0};
+	char s3[] = {0, 0, 42, 0};
+	
+	printf("MEMCMP\n");
+	printf("%d > 0\n", ft_memcmp(s, s2, 1));
+	printf("%d < 0\n", ft_memcmp(s2, s, 1));
+	printf("%d != 0\n", ft_memcmp(s2, s3, 4));
+}
+
+void	test_strlcpy()
+{
+	ft_putendl_fd("STRLCPY", 1);
+	char src[] = "coucou";
+	char dest[10]; memset(dest, 'A', 10);
+	printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 2), strlen(src));
+	printf("%s\n", dest);
+	if (dest[1] == 0)
+		printf("dest[1] = 0\n");
+	printf("dest[2]>%c\n", dest[2]);
+}
+
+void	test_strnstr()
+{
+	char haystack[30] = "aaabcabcd";
+
+	printf("STRNSTR\n");
+	printf("%p\n\n", ft_strnstr("aaabcabcd", "cd", 8));
+}
 
 void	*duplicate_node(void *p)
 {
@@ -194,6 +235,9 @@ int		main()
 	assert(memchr(mem, 't', 4) == ft_memchr(mem, 't', 4));
 	assert(memchr(mem, 'q', 4) == ft_memchr(mem, 'q', 4));
 	assert(memchr(mem, 't', 0) == ft_memchr(mem, 't', 0));
+	// printf("%p == %p\n", memchr(mem, 't', 4), ft_memchr(mem, 't', 4));
+	// printf("%p == %p\n", memchr(mem, 'q', 4), ft_memchr(mem, 'q', 4));
+	// printf("%p == %p\n", memchr(mem, 't', 0), ft_memchr(mem, 't', 0));
 	
 	assert(memcmp(mem, mem3, 0) ==  ft_memcmp(mem, mem3, 0));
 	assert(memcmp(mem, mem3, 1) ==  ft_memcmp(mem, mem3, 1));
@@ -207,32 +251,38 @@ int		main()
 	
 	printf("\nMEMORY TEST\n");
 	test_memcpy();
+	test_memchr();
 	test_memmove();
 	test_memset();
-	
-	ft_putendl_fd("ft_putchar>", 1);
-	ft_putchar_fd('a', 1);
-	ft_putendl_fd("ft_putendl>", 1);
-	ft_putendl_fd("", 1);
-	ft_putendl_fd("test", 1);
-	ft_putendl_fd("", 1);
-	ft_putendl_fd("test2", 1);
+	test_memcmp();
+	test_strlcpy();
+	test_strlcpy();
+	test_strnstr();
+	printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
-	ft_putendl_fd("ft_putstr>", 1);
-	ft_putstr_fd("test", 1);
-	ft_putendl_fd("test", 1);
-	ft_putendl_fd("test", 1);
-	ft_putendl_fd("ft_putnbr>", 1);
-	ft_putnbr_fd(2147483647, 1);
-	ft_putendl_fd("", 1);
-	ft_putnbr_fd(-2147483648, 1);
-	ft_putendl_fd("", 1);
-	ft_putnbr_fd(0, 1);
-	ft_putendl_fd("", 1);
-	ft_putnbr_fd(-12345, 1);
-	ft_putendl_fd("", 1);
+	// ft_putendl_fd("ft_putchar>", 1);
+	// ft_putchar_fd('a', 1);
+	// ft_putendl_fd("ft_putendl>", 1);
+	// ft_putendl_fd("", 1);
+	// ft_putendl_fd("test", 1);
+	// ft_putendl_fd("", 1);
+	// ft_putendl_fd("test2", 1);
 
-	printf("ft_split>");
+	// ft_putendl_fd("ft_putstr>", 1);
+	// ft_putstr_fd("test", 1);
+	// ft_putendl_fd("test", 1);
+	// ft_putendl_fd("test", 1);
+	// ft_putendl_fd("ft_putnbr>", 1);
+	// ft_putnbr_fd(2147483647, 1);
+	// ft_putendl_fd("", 1);
+	// ft_putnbr_fd(-2147483648, 1);
+	// ft_putendl_fd("", 1);
+	// ft_putnbr_fd(0, 1);
+	// ft_putendl_fd("", 1);
+	// ft_putnbr_fd(-12345, 1);
+	// ft_putendl_fd("", 1);
+
+	printf("ft_split>\n");
 	char **strings = ft_split("Hello world test    test ", ' ');
 	// char **strings = ft_split("Hello", ' ');
 	// char **strings = ft_split("", ' ');
@@ -267,8 +317,8 @@ int		main()
 	printf("%s\n", s3);
 	
 	printf("ft_strtrim\n");
-	char	*s4 = ft_strtrim(s3, "holla");
-	printf("ft_strtrim>%s\n", s4);
+	// char	*s4 = ft_strtrim(s3, "holla");
+	// printf("ft_strtrim>%s\n", s4);
 
 	
 

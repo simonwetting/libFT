@@ -21,10 +21,10 @@ fclean: clean
 re: fclean all
 
 crun: re
-	cc main.c libft.a; ./a.out
+	cc combined_main.c libft.a; ./a.out
 
 cleanrun: re
-	make clean; cc main.c libft.a; ./a.out
+	make clean; cc combined_main.c libft.a; ./a.out
 
 frun:
 	cc combined_main.c libft.a; ./a.out
