@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 17:10:08 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 17:28:29 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -283,13 +283,15 @@ int		main()
 	// ft_putendl_fd("", 1);
 
 	printf("ft_split>\n");
-	char **strings = ft_split("Hello world test    test ", ' ');
+	char **strings = ft_split(0, 0);
+	// char **strings = ft_split("Hello world test    test ", ' ');
+	// char **strings = ft_split("     ", ' '); //FAIL
 	// char **strings = ft_split("Hello", ' ');
 	// char **strings = ft_split("", ' ');
 	// char **strings = ft_split("    ", ' ');
 	// char **strings = ft_split("   Hello   world test    test ", ' ');
 	int		n = -1;
-	if (strings)
+	if (strings[0])
 		while (strings[++n])
 			printf("[%d]%s\n", n, strings[n]);
 	else

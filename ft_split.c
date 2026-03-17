@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 14:50:10 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/13 14:55:18 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 17:27:35 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static char	count_strings(char const *s, char c)
 {
 	char	n_strings;
 
+	if (s == 0)
+		return (0);
 	n_strings = 0;
 	if (*s != c && *s)
 	{
@@ -52,11 +54,10 @@ char	**ft_split(char const *s, char c)
 	size_t	index;
 	char	**strings;
 	
-
 	string_count = count_strings(s, c);
-	if (string_count == 0)
-		return (0);
 	strings = malloc(sizeof(char *) * (string_count + 1));
+	if (s == 0)
+		return (strings[0] = 0, strings);
 	while (*s == c)
 		s++;
 	index = 0;
@@ -73,3 +74,5 @@ char	**ft_split(char const *s, char c)
 	strings[index] = 0;
 	return (strings);
 }
+// if (string_count == 0)
+	// 	return (0);
