@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/16 15:29:49 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/17 12:27:21 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,7 +199,7 @@ int		main()
 	assert(memcmp(mem, mem2, 5) ==  ft_memcmp(mem, mem2, 5));
 
 	
-	
+	printf("\nMEMORY TEST\n");
 	test_memcpy();
 	test_memmove();
 	test_memset();
@@ -226,7 +226,7 @@ int		main()
 	ft_putnbr_fd(-12345, 1);
 	ft_putendl_fd("", 1);
 
-	ft_putendl_fd("ft_split>", 1);
+	printf("ft_split>");
 	char **strings = ft_split("Hello world test    test ", ' ');
 	// char **strings = ft_split("Hello", ' ');
 	// char **strings = ft_split("", ' ');
@@ -238,7 +238,7 @@ int		main()
 			printf("[%d]%s\n", n, strings[n]);
 	else
 		printf("ft_split empty\n");
-\\
+		
 	ft_putendl_fd("ft_strdup>", 1);
 	char	*to_be_duplicated = "test";
 	char	*duplicate = ft_strdup(to_be_duplicated);
