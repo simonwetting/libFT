@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/18 15:32:55 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/18 18:11:44 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	test_strlcpy()
 	char dest[10]; memset(dest, 'A', 10);
 	// printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 2), strlen(src));
 	// printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 0), strlen(src));
-	printf("src length>%d == %lu\n", ft_strlcpy(dest, src, 1), strlen(src));
+	printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 1), strlen(src));
 	printf("%s\n", dest);
 	for (int n = 0; n < 3; n++)
 		printf("dest[%d] = %c\n", n, dest[n]);
@@ -171,8 +171,11 @@ void	test_strtrim()
 
 void	test_calloc()
 {
-	void *p = ft_calloc(0, 0);
 	printf("CALLOC");
+	void *p = ft_calloc(2, 2);
+	char *s = (char *)p;
+	for (int n = 0; n < 4; n++)
+		printf("p[%d] =  %hhd", n, s[n]);
 	printf("%p\n", p);
 	p = ft_calloc(0, 5);
 	printf("%p\n", p);
@@ -183,6 +186,13 @@ void	test_calloc()
 	p = ft_calloc(SIZE_MAX, 500);
 	printf("sizemanx * 500 >%p\n", p);
 	printf("SIZE_MAX = %lu\n", SIZE_MAX);
+}
+
+void	test_substr()
+{
+	char *s = ft_substr("tripouille", 100, 1);
+	if (strcmp(s, ""))
+		printf("SUBSTR WRONG\n(%s)\n", s);
 }
 
 int		main()
@@ -290,6 +300,7 @@ int		main()
 	test_strnstr();
 	test_strtrim();
 	test_calloc();
+	test_substr();
 	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);
@@ -364,6 +375,9 @@ int		main()
 
 	printf("%p", ft_calloc(INT_MAX, INT_MAX));
 	printf("%p", ft_calloc(INT_MAX, INT_MAX));
+	printf("MIN_INT size_t>%d != %d\n", INT_MIN, INT_MAX);
+	printf("SIZE_MAX>%lu\n", SIZE_MAX);
+	printf("%p\n", ft_calloc(INT_MIN, INT_MIN));
 }
 
 
