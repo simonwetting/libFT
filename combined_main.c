@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/18 13:30:30 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/18 15:32:55 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,26 @@ void	test_strtrim()
 	
 	printf("STRTRIM\n");
 	printf("%s\n", ft_strtrim(str, set));
+	char *s = ft_strtrim("x x x    tripouille            xxx", " x");
+	printf ("%s == %s\n", s, "tripouille");
+	s = ft_strtrim("   xxx   xxx", " x");
+	printf ("%s == %s\n", s, "empty");
+}
+
+void	test_calloc()
+{
+	void *p = ft_calloc(0, 0);
+	printf("CALLOC");
+	printf("%p\n", p);
+	p = ft_calloc(0, 5);
+	printf("%p\n", p);
+	p = ft_calloc(5, 0);
+	printf("%p\n", p);
+	p = ft_calloc(500, SIZE_MAX);
+	printf("500 * sizemax>%p\n", p);
+	p = ft_calloc(SIZE_MAX, 500);
+	printf("sizemanx * 500 >%p\n", p);
+	printf("SIZE_MAX = %lu\n", SIZE_MAX);
 }
 
 int		main()
@@ -269,6 +289,7 @@ int		main()
 	test_strlcpy();
 	test_strnstr();
 	test_strtrim();
+	test_calloc();
 	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);

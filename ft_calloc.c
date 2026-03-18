@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 15:58:34 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/18 12:27:53 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/18 15:34:49 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,24 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*p;
 	
-	unsigned long	length;
+	// unsigned long	length;
 
-	length = nmemb * size;
+	// length = nmemb * size;
 	// printf("nmemb * size %lu * %lu = %lu", nmemb, size, length);
 	// if (length < 4294967295)
 	// 	return (0);
-	if ((INT_MAX <= nmemb && INT_MAX <= size) || length == 0)
-		return (0);
-	if (nmemb > 0 && size > 0)
-		p = malloc(length);
-	else
-		return (0);
-	ft_bzero(p, length);
+	// printf("length>%lu\n", length);
+	// if ((INT_MAX <= nmemb && INT_MAX <= size) || length == 0 || length > 1000000000)
+	// 	return (NULL);
+	// if (nmemb > 0 && size > 0)
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
+	p = malloc(nmemb * size);
+	if (!p)
+		return (NULL);
+	// else
+	// 	return (0);	
+	ft_bzero(p, nmemb * size);
 	return (p);
 }
 
