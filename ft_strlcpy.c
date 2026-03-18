@@ -6,31 +6,45 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/01/27 11:51:13 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 14:11:00 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/18 13:11:05 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
+// {
+// 	unsigned int	n;
+// 	unsigned int	length;
+
+// 	n = 0;
+// 	length = 0;
+// 	while (src[length])
+// 		length++;
+// 	if (size == 0)
+// 		return (length);
+// 	while (src[n] && dest[n] && n < size - 1)
+// 	{
+// 		dest[n] = src[n];
+// 		n++;
+// 	}
+// 	if (size > 0)
+// 		dest[n] = '\0';
+// 	return (length);
+// }
+
 size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	unsigned int	n;
-	unsigned int	length;
+	size_t		index;
 
-	n = 0;
-	length = 0;
-	while (src[length])
-		length++;
-	if (size == 0)
-		return (length);
-	while (src[n] && dest[n] && n < size - 1)
-	{
-		dest[n] = src[n];
-		n++;
-	}
+	index = -1;
+	while (src[++index] && index + 1 < size)
+		dest[index] = src[index];
 	if (size > 0)
-		dest[n] = '\0';
-	return (length);
+		dest[index] = 0;
+	while (src[index])
+		index++;
+	return (index);
 }
 
 // #include <bsd/string.h>

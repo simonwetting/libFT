@@ -6,12 +6,13 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 17:28:29 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/18 13:30:30 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
+#include <bsd/string.h>
 #include <strings.h>
 #include <assert.h>
 #include <ctype.h>
@@ -100,11 +101,12 @@ void	test_strlcpy()
 	ft_putendl_fd("STRLCPY", 1);
 	char src[] = "coucou";
 	char dest[10]; memset(dest, 'A', 10);
-	printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 2), strlen(src));
+	// printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 2), strlen(src));
+	// printf("src length>%zu == %lu\n", ft_strlcpy(dest, src, 0), strlen(src));
+	printf("src length>%d == %lu\n", ft_strlcpy(dest, src, 1), strlen(src));
 	printf("%s\n", dest);
-	if (dest[1] == 0)
-		printf("dest[1] = 0\n");
-	printf("dest[2]>%c\n", dest[2]);
+	for (int n = 0; n < 3; n++)
+		printf("dest[%d] = %c\n", n, dest[n]);
 }
 
 void	test_strnstr()
@@ -152,6 +154,15 @@ void	lowcase(unsigned int index, char *s)
 char	increment(unsigned int i, char c)
 {
 	return (c + i);
+}
+
+void	test_strtrim()
+{
+	char	*str = "   holla warld  test test  ";
+	char	*set = " ";
+	
+	printf("STRTRIM\n");
+	printf("%s\n", ft_strtrim(str, set));
 }
 
 int		main()
@@ -256,8 +267,8 @@ int		main()
 	test_memset();
 	test_memcmp();
 	test_strlcpy();
-	test_strlcpy();
 	test_strnstr();
+	test_strtrim();
 	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);
@@ -318,9 +329,9 @@ int		main()
 	char	*s3 = ft_strjoin(s1, s2);
 	printf("%s\n", s3);
 	
-	printf("ft_strtrim\n");
-	char	*s4 = ft_strtrim(s3, "holla");
-	printf("ft_strtrim>%s\n", s4);
+	// printf("ft_strtrim\n");
+	// char	*s4 = ft_strtrim(s3, "holla");
+	// printf("ft_strtrim>%s\n", s4);
 
 	
 
@@ -330,7 +341,8 @@ int		main()
 	char *smapi = ft_strmapi("test", &increment);
 	printf("strmapi>%s\n", smapi);
 
-	
+	printf("%p", ft_calloc(INT_MAX, INT_MAX));
+	printf("%p", ft_calloc(INT_MAX, INT_MAX));
 }
 
 

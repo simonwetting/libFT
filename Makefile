@@ -3,6 +3,7 @@ FILENAMES = ft_strncmp ft_isprint ft_strrchr ft_memmove ft_isascii ft_isalnum ft
 
 OBJECTS = $(FILENAMES:%=%.o)
 FILES = $(FILENAMES:%=%.c)
+CFLAGS = -Wall -Werror -Wextra -lbsd
 
 all: $(OBJECTS) $(NAME)
 
@@ -31,3 +32,6 @@ frun:
 
 frune:
 	cc combined_main.c libft.a; ./a.out | cat -e
+
+pushgit:
+	make clean; git add *; git commit -m "push"; git push
