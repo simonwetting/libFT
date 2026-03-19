@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/19 13:05:13 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/19 14:52:02 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,33 @@ void	test_substr()
 	printf("(%s)", s);
 }
 
+void	iter(unsigned int i, char * s) {
+	// printf("incrementing\n");
+	*s += i;
+}
+
+void	test_striteri()
+{
+	char s[] = "0000000000";
+	printf("STRITERI TEST\n");
+	ft_striteri(s, iter);
+	printf("%s\n", s);
+}
+
+void	test_lstlast()
+{
+	t_list * l;
+	// ft_lstadd_back(&l, ft_lstnew((void*)1));
+	// printf("lstlast test>%p\n", ft_lstlast(l)->content);
+	printf("lst_test start\n");
+	t_list *new = ft_lstnew((void*)1);
+	printf("Starting addback\n");
+	printf("%p\n%p\n%p\n", new, new->next, new->content);
+	ft_lstadd_back(&l, new);
+	// ft_lstadd_back(&l, ft_lstnew((void*)1));
+	printf("lst_test end\n");
+}
+
 int		main()
 {
 	assert(ft_atoi("") == atoi(""));
@@ -305,6 +332,8 @@ int		main()
 	test_strtrim();
 	test_calloc();
 	test_substr();
+	test_striteri();
+	test_lstlast();
 	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);
@@ -355,9 +384,9 @@ int		main()
 	ft_striteri(s5, &lowcase);
 	printf("ft_striteri>%s\n", s5);
 	
-	// printf("\nft_substr\n");
-	// char	*s1 = "Hello world, holla warld, test test";
-	// char	*s2 = ft_substr(s1, 6, 10);
+	printf("\nft_substr\n");
+	char	*s1 = "Hello world, holla warld, test test";
+	char	*s2 = ft_substr(s1, 6, 10);
 
 	printf("%s\n", s2);
 	
@@ -365,9 +394,9 @@ int		main()
 	char	*s3 = ft_strjoin(s1, s2);
 	printf("%s\n", s3);
 	
-	// printf("ft_strtrim\n");
-	// char	*s4 = ft_strtrim(s3, "holla");
-	// printf("ft_strtrim>%s\n", s4);
+	printf("ft_strtrim\n");
+	char	*s4 = ft_strtrim(s3, "holla");
+	printf("ft_strtrim>%s\n", s4);
 
 	
 
