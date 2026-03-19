@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:34:46 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/18 18:16:26 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/19 13:09:10 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,21 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	length_s = ft_strlen(s);
 	if (start >= length_s)
 		return(ft_strdup(""));
-	if (len <= length_s)
+	if (start + len <= length_s)
 		out = malloc(len + 1);
 	else
-		out = malloc(length_s + 1);
+		out = malloc(ft_strlen(s + start) + 1);
 	index = -1;
 	while (++index < len && s[index])
 		out[index] = s[start + index];
 	out[index] = 0;
 	return (out);
 }
+
+// int		main()
+// {
+// 	// char *str = ft_strdup("0123456789");
+// 	// char *s = ft_substr(str, 9, 10);
+// 	char *s = ft_substr("tripouille", 1, 1);
+// 	// free(str);
+// }

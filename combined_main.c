@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/18 18:11:44 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/19 13:05:13 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,9 +190,13 @@ void	test_calloc()
 
 void	test_substr()
 {
+	printf("FT_SUSTR TEST\n");
 	char *s = ft_substr("tripouille", 100, 1);
 	if (strcmp(s, ""))
 		printf("SUBSTR WRONG\n(%s)\n", s);
+	char *str = strdup("0123456789");
+	s = ft_substr(str, 9, 10);
+	printf("(%s)", s);
 }
 
 int		main()
@@ -351,9 +355,9 @@ int		main()
 	ft_striteri(s5, &lowcase);
 	printf("ft_striteri>%s\n", s5);
 	
-	printf("\nft_substr\n");
-	char	*s1 = "Hello world, holla warld, test test";
-	char	*s2 = ft_substr(s1, 6, 10);
+	// printf("\nft_substr\n");
+	// char	*s1 = "Hello world, holla warld, test test";
+	// char	*s2 = ft_substr(s1, 6, 10);
 
 	printf("%s\n", s2);
 	

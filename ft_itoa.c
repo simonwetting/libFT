@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 17:45:39 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/12 18:00:41 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/19 14:00:45 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		length_nbr(long nbr)
 {
 	int		length;
 
+	if (nbr < 0)
+		nbr *= -1;
 	length = 0;
 	if (nbr == 0)
 		return (1);
@@ -36,14 +38,14 @@ char	*ft_itoa(int n)
 
 	nb = n;
 	index = 0;
-	str = malloc(sizeof(char) * 11);
+	length = length_nbr(nb);
+	str = malloc(sizeof(char) * length + 1 + (nb < 0));
 	if (nb < 0)
 	{
 		str[index] = '-';
 		str++;
 		nb *= -1;
 	}
-	length = length_nbr(nb);
 	while (index < length)
 	{
 		str[length - index++ - 1] = nb % 10 + '0';
@@ -54,3 +56,11 @@ char	*ft_itoa(int n)
 		str--;
 	return (str);
 }
+
+// int		main()
+// {
+// 	// char *s = ft_itoa(INT_MIN); //2147483648
+// 	// printf("%s\n", s );
+// 	// // free(s);
+// 	printf("%d\n%d", (1 < 0), 1 > 0);
+// }
