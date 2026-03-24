@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/13 19:09:53 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/24 12:46:33 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/24 12:46:44 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*head;
-	// (void)f;
 	t_list	*node;
 	
 	if (!lst)
