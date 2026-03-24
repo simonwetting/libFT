@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/20 18:07:50 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/24 13:12:16 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,6 +273,7 @@ void	test_lstmap()
 		printf("tmp>%d\n", tmp->content);
 		tmp = tmp->next;
 	}
+	printf("lst>%p\n", lst);
 	t_list *map = ft_lstmap(lst, add_one, ft_lstclear);
 	printf("PRINTING MAP\n%p\n", map);
 	while (map)
@@ -280,6 +281,7 @@ void	test_lstmap()
 		printf("%d\n", map->content);
 		map = map->next;
 	}
+	ft_lstclear(lst, del);;
 }
 
 int		main()

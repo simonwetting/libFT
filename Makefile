@@ -37,4 +37,7 @@ pushgit:
 	make clean; git add *; git commit -m "push"; git push
 
 gdb:
-	cc -g ft* combined_main.c; gdb a.out
+	cc -g ft*.c combined_main.c; gdb a.out
+
+debug:
+	cc -g ft*.c combined_main.c;
