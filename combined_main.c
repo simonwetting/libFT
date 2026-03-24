@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/19 14:52:02 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/20 18:07:50 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	test_memchr()
 
 void	test_memmove()
 {
-	char s[] = "test";
+	// char s[] = "test";
 	
 	printf("\nmemmove\n");
 	// printf("%s\n", s);
@@ -86,7 +86,7 @@ void	test_memset()
 void	test_memcmp()
 {
 	char s[] = {-128, 0, 127, 0};
-	char sCpy[] = {-128, 0, 127, 0};
+	// char sCpy[] = {-128, 0, 127, 0};
 	char s2[] = {0, 0, 127, 0};
 	char s3[] = {0, 0, 42, 0};
 	
@@ -111,7 +111,7 @@ void	test_strlcpy()
 
 void	test_strnstr()
 {
-	char haystack[30] = "aaabcabcd";
+	// char haystack[30] = "aaabcabcd";
 
 	printf("STRNSTR\n");
 	printf("%p\n\n", ft_strnstr("aaabcabcd", "cd", 8));
@@ -129,9 +129,31 @@ void	*duplicate_node(void *p)
 	return ((void *)new);
 }
 
+void	*add_one(void *p)
+{
+	// *(int*)r = *(int*)p + 1;
+	// printf("p == %p\n", p);
+	int r = (int)p;
+	r++;
+	// write(1, "test", 1);
+	printf("%p becomes %d\n", p, r);
+	return (r);
+}
+
 void	print_content(void *p)
 {
+	write(1, "print content", 14);
 	ft_putendl_fd((char *)p, 1);
+}
+
+void	print_pointer(void *p)
+{
+	write(1, "print content\n", 15);
+	// unsigned long *n = (unsigned long *)p;
+	// write(1, "print content2", 14);
+	printf("%d\n%p\n", p, p);
+	// printf("%p", p);
+	// ft_putnbr_fd(*n, 1);
 }
 
 void	del(void *p)
@@ -149,7 +171,8 @@ void	lowcase(unsigned int index, char *s)
 {
 	if (s[index] >= 'A' && s[index] <= 'Z')
 		s[index] += 32;
-}
+
+	}
 
 char	increment(unsigned int i, char c)
 {
@@ -214,16 +237,49 @@ void	test_striteri()
 
 void	test_lstlast()
 {
-	t_list * l;
+	// t_list *l = ft_lstnew((void *)100);
 	// ft_lstadd_back(&l, ft_lstnew((void*)1));
 	// printf("lstlast test>%p\n", ft_lstlast(l)->content);
 	printf("lst_test start\n");
-	t_list *new = ft_lstnew((void*)1);
-	printf("Starting addback\n");
-	printf("%p\n%p\n%p\n", new, new->next, new->content);
-	ft_lstadd_back(&l, new);
-	// ft_lstadd_back(&l, ft_lstnew((void*)1));
+		// t_list *new = ft_lstnew((void*)1);
+		// printf("Starting addback\n\n");
+		// printf("head>%p\nhead->next:%p\ncontent>%p\n\n", new, new->next, new->content);
+		// ft_lstadd_back(&l, new);
+		// ft_lstadd_back(&l, ft_lstnew((void*)1));
+		// ft_lstiter(l, &print_pointer);
+	// while (l)
+	// {
+	// 	printf("%p>%d\n", l, l->content);
+	// 	l = l->next;
+	// }
+	t_list * l =  NULL;
+	ft_lstadd_back(&l, ft_lstnew((void*)1));
+	if (ft_lstlast(l)->content == (void*)1)
+		printf("YAY\n");
 	printf("lst_test end\n");
+}
+
+void	test_lstmap()
+{
+	printf("\n\nLSTMAP TESTS\n\n");
+	t_list *lst = ft_lstnew((void *)0);
+	printf("first>%p\n", lst->content);
+	ft_lstadd_back(&lst, ft_lstnew((void *)1));
+	ft_lstadd_back(&lst, ft_lstnew((void *)2));
+	ft_lstadd_back(&lst, ft_lstnew((void *)3));
+	t_list *tmp = lst;
+	while (tmp)
+	{
+		printf("tmp>%d\n", tmp->content);
+		tmp = tmp->next;
+	}
+	t_list *map = ft_lstmap(lst, add_one, ft_lstclear);
+	printf("PRINTING MAP\n%p\n", map);
+	while (map)
+	{
+		printf("%d\n", map->content);
+		map = map->next;
+	}
 }
 
 int		main()
@@ -297,8 +353,9 @@ int		main()
 	// del(head);
 	// free(&head->content);
 	ft_putendl_fd("lstmap (duplicates) and lstiter:", 1);
-	t_list *dup = ft_lstmap(head, &duplicate_node, &del);
-	ft_lstiter(dup, &print_content);
+	// t_list *dup = ft_lstmap(head, &duplicate_node, &del);
+	// t_list *dup = ft_lstmap(head, &add_one, &del);
+	// ft_lstiter(dup, &print_content);
 
 	char	*mem = "testq";
 	char	*mem2 = "test";
@@ -334,6 +391,7 @@ int		main()
 	test_substr();
 	test_striteri();
 	test_lstlast();
+	test_lstmap();
 	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);
@@ -357,7 +415,7 @@ int		main()
 	// ft_putendl_fd("", 1);
 	// ft_putnbr_fd(-12345, 1);
 	// ft_putendl_fd("", 1);
-
+/*
 	printf("ft_split>\n");
 	char **strings = ft_split(0, 0);
 	// char **strings = ft_split("Hello world test    test ", ' ');
@@ -411,6 +469,8 @@ int		main()
 	printf("MIN_INT size_t>%d != %d\n", INT_MIN, INT_MAX);
 	printf("SIZE_MAX>%lu\n", SIZE_MAX);
 	printf("%p\n", ft_calloc(INT_MIN, INT_MIN));
+
+*/
 }
 
 

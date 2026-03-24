@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:34:46 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/19 13:09:10 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/20 12:38:34 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	else
 		out = malloc(ft_strlen(s + start) + 1);
 	index = -1;
-	while (++index < len && s[index])
+	while (++index < len && s[start + index])
 		out[index] = s[start + index];
 	out[index] = 0;
 	return (out);

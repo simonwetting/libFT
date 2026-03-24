@@ -3,12 +3,12 @@ FILENAMES = ft_strncmp ft_isprint ft_strrchr ft_memmove ft_isascii ft_isalnum ft
 
 OBJECTS = $(FILENAMES:%=%.o)
 FILES = $(FILENAMES:%=%.c)
-CFLAGS = -Wall -Werror -Wextra -lbsd
+CFLAGS = -Wall -Werror -Wextra -g
 
 all: $(OBJECTS) $(NAME)
 
 $(OBJECTS):
-	cc -c $(FILES) -Wall -Werror -Wextra
+	cc -c $(CFLAGS) $(FILES) -Wall -Werror -Wextra
 
 $(NAME):
 	ar rc $(NAME) $(OBJECTS)
@@ -22,16 +22,19 @@ fclean: clean
 re: fclean all
 
 crun: re
-	cc combined_main.c libft.a; ./a.out
+	cc $(CFLAGS) combined_main.c libft.a; ./a.out
 
 cleanrun: re
-	make clean; cc combined_main.c libft.a; ./a.out
+	make clean; $(CFLAGS) cc combined_main.c libft.a; ./a.out
 
 frun:
-	cc combined_main.c libft.a; ./a.out
+	cc $(CFLAGS) combined_main.c libft.a; ./a.out
 
 frune:
-	cc combined_main.c libft.a; ./a.out | cat -e
+	cc $(CFLAGS) combined_main.c libft.a; ./a.out | cat -e
 
 pushgit:
 	make clean; git add *; git commit -m "push"; git push
+
+gdb:
+	cc -g ft* combined_main.c; gdb a.out

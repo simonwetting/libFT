@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:46:52 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 14:20:06 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/20 14:33:03 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	index = -1;
 	while (++index < len_s2)
 		output[len_s1 + index] = s2[index];
+	output[len_s1 + index] = 0;
 	return (output);
 }
