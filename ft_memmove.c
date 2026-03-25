@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 14:39:19 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/17 12:45:54 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 12:56:46 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char	*p_src;
 	char	*p_dest;
 
+	if (!dest && !src)
+		return (NULL);
 	p_src = (char *)src;
 	p_dest = (char *)dest;
 	index = -1;

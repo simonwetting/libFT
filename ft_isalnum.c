@@ -5,14 +5,15 @@
 /*                                                     +:+                    */
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2026/03/10 18:00:15 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/16 12:34:01 by swetting      ########   odam.nl         */
+/*   Created: 2026/03/25 13:30:22 by swetting      #+#    #+#                 */
+/*   Updated: 2026/03/25 13:33:54 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
-        return (8);
-    return (0);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+		|| (c >= '0' && c <= '9'))
+		return (1);
+	return (0);
 }

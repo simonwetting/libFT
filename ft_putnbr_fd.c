@@ -6,13 +6,13 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/13 14:20:18 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/20 12:14:44 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:55:14 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long	nbr;
 

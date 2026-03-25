@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/01/28 19:18:49 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/11 13:44:52 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:34:47 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t		n;
+	size_t				n;
 	unsigned int		dest_length;
 	unsigned int		src_length;
 
@@ -70,7 +70,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 // 	// n = strlcat(dest2, src, 0);
 // 	// printf("%s\n", dest2);
 // 	// printf("%zu\n\n", n);
-	
+
 // 	// printf("%s\n", dest);
 // 	// n = ft_strlcat(dest, src, 1);
 // 	// printf("%s\n", dest);
@@ -120,7 +120,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 // 	// n = strlcat(dest2, src, 5);
 // 	// printf("%s\n", dest2);
 // 	// printf("%zu\n\n", n);
-	
+
 // 	// printf("%s\n", dest);
 // 	// n = ft_strlcat(dest, src, 6);
 // 	// printf("%s\n", dest);

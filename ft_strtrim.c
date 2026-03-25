@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 14:25:01 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/18 14:56:24 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:40:15 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (check(s1[end - 1], set))
 		end--;
 	if (end <= start)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	return (ft_substr(s1, start, end - start));
 }
 

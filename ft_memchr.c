@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 15:21:57 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/24 15:11:02 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:28:48 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	index;
+	size_t			index;
 	unsigned char	*ptr;
-	unsigned char	c2 =  c;
-	
+	unsigned char	c2;
+
+	c2 = c;
 	index = -1;
 	ptr = (unsigned char *)s;
 	while (++index < n)

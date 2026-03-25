@@ -6,15 +6,15 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/13 17:29:24 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/24 13:26:53 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:27:09 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	while (*lst)
 	{

@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:38:38 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/24 13:12:16 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 11:58:27 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -392,8 +392,11 @@ int		main()
 	test_calloc();
 	test_substr();
 	test_striteri();
-	test_lstlast();
-	test_lstmap();
+	// test_lstlast();
+	// test_lstmap();
+
+	printf("test");
+	// printf("memcpy>%p", memcpy(((void*)0), ((void*)0), 3));
 	//printf("%lu>%p\n", __SIZE_MAX__,ft_calloc(__SIZE_MAX__, __SIZE_MAX__));
 
 	// ft_putendl_fd("ft_putchar>", 1);

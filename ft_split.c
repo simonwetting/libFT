@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 14:50:10 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/19 13:43:06 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:53:38 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,27 @@ static size_t	str_len(char const *s, char c)
 	return (len);
 }
 
-char	**ft_split(char const *s, char c)
+char	**delete(char **strings, int index)
 {
-	size_t	string_count;
-	size_t	len;
-	size_t	index;
-	char	**strings;
-	
-	string_count = count_strings(s, c);
-	strings = malloc(sizeof(char *) * (string_count + 1));
-	if (s == 0 || *s == 0)
-		return (strings[0] = 0, strings);
-	while (*s == c)
-		s++;
+	int	n;
+
+	n = 0;
+	if (index == -1)
+	{
+		free(strings);
+		return (NULL);
+	}
+	while (n <= index)
+		free(strings[n++]);
+	free(strings);
+	return (NULL);
+}
+
+char	**fill_strings(char const *s, char c, int string_count, char **strings)
+{
+	int		index;
+	int		len;
+
 	index = 0;
 	while (index < string_count)
 	{
@@ -67,11 +75,31 @@ char	**ft_split(char const *s, char c)
 			s++;
 		len = str_len(s, c);
 		strings[index] = malloc(len + 1);
+		if (!(strings[index]))
+			return (delete(strings, index));
 		ft_memcpy(strings[index], s, len);
 		strings[index++][len] = 0;
 		s += len;
 	}
 	strings[index] = 0;
+	return (strings);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	string_count;
+	char	**strings;
+
+	string_count = count_strings(s, c);
+	strings = malloc(sizeof(char *) * (string_count + 1));
+	if (!strings)
+		return (delete(strings, -1));
+	if (s == 0 || *s == 0)
+		return (strings[0] = 0, strings);
+	while (*s == c)
+		s++;
+	if (fill_strings(s, c, string_count, strings) == NULL)
+		return (NULL);
 	return (strings);
 }
 
@@ -90,3 +118,16 @@ char	**ft_split(char const *s, char c)
 
 // // if (string_count == 0)
 // 	// 	return (0);
+
+//while (index < string_count)
+//	{
+//		while (*s == c)
+//			s++;
+//		len = str_len(s, c);
+//		strings[index] = malloc(len + 1);
+//		if (!(strings[index]))
+//			return (delete(strings, index));
+//		ft_memcpy(strings[index], s, len);
+//		strings[index++][len] = 0;
+//		s += len;
+//	}

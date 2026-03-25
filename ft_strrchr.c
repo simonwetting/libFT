@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 09:45:54 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/17 14:21:57 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:39:04 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		index;
-	char	*location;
+	int				index;
+	char			*location;
 	unsigned char	c2;
 
 	c2 = c;

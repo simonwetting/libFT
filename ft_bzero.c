@@ -6,13 +6,13 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 10:01:56 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/11 14:14:33 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:13:28 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	index;
 	char	*pointer;

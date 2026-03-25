@@ -41,3 +41,6 @@ gdb:
 
 debug:
 	cc -g ft*.c combined_main.c;
+
+norm:
+	watch -n1 norminette $(FILES)

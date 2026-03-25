@@ -6,25 +6,20 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/10 16:49:31 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/18 15:27:09 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 14:11:06 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stddef.h>
-# include <stdlib.h>
-# include <limits.h>
 # include <stdint.h>
-
 # include <unistd.h>
-# include <stdio.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-void			*content;
-struct			s_list *next;
-}				t_list;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);

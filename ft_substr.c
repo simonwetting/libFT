@@ -6,27 +6,27 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 10:34:46 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/20 12:38:34 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:37:57 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*out;
 	size_t	index;
 	size_t	length_s;
 
-	// if (len > 1000000000)
-	// 	return (NULL);
 	length_s = ft_strlen(s);
 	if (start >= length_s)
-		return(ft_strdup(""));
+		return (ft_strdup(""));
 	if (start + len <= length_s)
 		out = malloc(len + 1);
 	else
 		out = malloc(ft_strlen(s + start) + 1);
+	if (!out)
+		return (NULL);
 	index = -1;
 	while (++index < len && s[start + index])
 		out[index] = s[start + index];

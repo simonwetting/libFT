@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/12 18:44:40 by anonymous     #+#    #+#                 */
-/*   Updated: 2026/03/12 18:44:40 by anonymous     ########   odam.nl         */
+/*   Updated: 2026/03/25 13:53:53 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new;
 
 	new = malloc(ft_strlen(s) + 1);
+	if (!new)
+		return (NULL);
 	index = -1;
 	while (s[++index])
 		new[index] = f(index, s[index]);

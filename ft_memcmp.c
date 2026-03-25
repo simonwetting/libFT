@@ -6,7 +6,7 @@
 /*   By: swetting <swetting@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2026/03/11 15:29:13 by swetting      #+#    #+#                 */
-/*   Updated: 2026/03/17 13:52:07 by swetting      ########   odam.nl         */
+/*   Updated: 2026/03/25 13:29:13 by swetting      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	index;
-	unsigned char 	*p_s1;
-	unsigned char 	*p_s2;
+	size_t			index;
+	unsigned char	*p_s1;
+	unsigned char	*p_s2;
 
 	if (n == 0)
 		return (0);
